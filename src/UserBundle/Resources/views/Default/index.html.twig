@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+	{% block body %}    
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    
+                    <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">Bonobos Friends List</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small>By
+                            <strong>Christophe Houlet</strong>
+                        </small>
+                    </h2>
+                </div>
+            </div>
+        </div>        
+
+        {% if is_granted('ROLE_USER') %}
+        	<div class="row">
+	            <div class="box">
+	                <div class="col-lg-12" style="text-align: center;">
+	                    <hr>
+	                    <h2 class="intro-text text-center">
+	                        <strong>Access to my friends list</strong>
+	                    </h2>
+	                    <hr>
+	                    <p><a href="{{ path('user_friend_list',{id:app.user.id}) }}"><button class="btn btn-success btn-lg">Access</button></a></p>
+	                    
+	                </div>
+	            </div>
+	        </div>
+        {% else %}
+            <div class="row">
+                <div class="box">
+                    <div class="col-lg-12" style="text-align: center;">
+                        <hr>
+                        <h2 class="intro-text text-center">Create your account and make a
+                            <strong>friends list</strong>
+                        </h2>
+                        <hr>
+                        <p><a href="{{ path('fos_user_security_login') }}"><button class="btn btn-success btn-lg">Login</button></a></p>
+                        <p><a href="{{ path('fos_user_registration_register') }}"><button class="btn btn-primary btn-lg">Create your account</button></a></p>
+                    </div>
+                </div>
+            </div>
+	    {% endif %}
+
+    </div>
+    <!-- /.container -->
+
+    {% endblock %}
+
+   

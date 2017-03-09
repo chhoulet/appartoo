@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+	{% block title %}Update{% endblock %}
+
+	{% block body %}
+
+		<div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Update
+                        <strong>{{ friend.name|upper ~ friend.username|capitalize}} </strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                                        
+                    <!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+							  	 {{ friend.name|capitalize }}
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Friends Bonobos</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							      		{{ form_start(form)}}
+								            {{ form_row(form.name) }}
+								            {{ form_row(form.username) }}
+								            {{ form_row(form.email) }}
+								            {{ form_row(form.race) }}
+								            {{ form_row(form.food) }}
+								            {{ form_row(form.family) }}
+								            {{ form_row(form.age) }}
+							      		{{ form_end(form)}}
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>							        
+							      </div>
+							    </div>
+							  </div>
+							</div>
+                    	
+                    <hr>
+                </div>
+            </div>
+        </div>
+       
+	{% endblock %}
